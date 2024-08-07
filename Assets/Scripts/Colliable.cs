@@ -13,7 +13,6 @@ public class Colliable : MonoBehaviour
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        Debug.Log("chay");
     }
     protected virtual void Update()
     {

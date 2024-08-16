@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class FloatingTextManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject textContainer;
+    public GameObject textPrefab;
+    private List<FloatingText> floatingTexts = new List<FloatingText>();
+    private FloatingText GetFloatingText()
     {
-        
+        FloatingText txt = floatingTexts.Find(t => !t.active)
+
+
+            if (txt == null)
+        {
+            txt = new FloatingText();
+            txt.go = Instantiate(textPrefab);
+            txt.go.transform.SetParent(textContainer.transform);
+            txt.txt = txt.go.GetComponent<textContainer>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -25,7 +25,6 @@ public class FloatingText
     }
     public void UpdateFloatingText()
     {
-
         if (!active) return;
         if (Time.time - lastShown > duration)
         {

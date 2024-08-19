@@ -1,4 +1,4 @@
-using System.Collections;
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +9,11 @@ public class FloatingTextManager : MonoBehaviour
     public GameObject textPrefab;
     private List<FloatingText> floatingTexts = new List<FloatingText>();
 
+    private void Update()
+    {
+        foreach (FloatingText txt in floatingTexts)
+            txt.UpdateFloatingText();
+    }
     public void Show(string msg, int fonSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
         FloatingText floatingText = GetFloatingText();
@@ -17,9 +22,8 @@ public class FloatingTextManager : MonoBehaviour
         floatingText.txt.color = color;
         floatingText.go.transform.position = Camera.main.WorldToScreenPoint(position); // Tranfer  world  space  to screen  space so we can use it in the Ui
         floatingText.motion = motion;
-        floatingText.duration=duration;
+        floatingText.duration = duration;
         floatingText.Show();
-
     }
     private FloatingText GetFloatingText()
     {
@@ -35,5 +39,6 @@ public class FloatingTextManager : MonoBehaviour
         }
         return txt;
     }
+
 
 }

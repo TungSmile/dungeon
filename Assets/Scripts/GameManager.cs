@@ -26,11 +26,17 @@ public class GameManager : MonoBehaviour
 
     // References
     public player player;
-
+    // public waepon ...
+    public FloatingTextManager floatingTextManager;
 
     // logic 
     public int gold;
     public int exp;
+    //Floating text
+    public void ShowText(string msg,int fonsize, Color color, Vector3 position , Vector3 motion, float duration) 
+    {
+        floatingTextManager.Show(msg, fonsize, color, position, motion, duration);
+    }
 
     // save state
     /*

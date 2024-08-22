@@ -22,7 +22,6 @@ public class Colliable : MonoBehaviour
         {
             if (hits[i] == null)
                 continue;
-
             OnCollide(hits[i]);
             // the array is not  cleaned up , so we do it ourself
             hits[i] = null;
@@ -33,7 +32,7 @@ public class Colliable : MonoBehaviour
     protected virtual void OnCollide(Collider2D coll)
     {
 
-        Debug.Log(coll.name);
+        Debug.Log("OnCollider was not implementer in "+this.name);
 
     }
 }

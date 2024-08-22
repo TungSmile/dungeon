@@ -19,15 +19,11 @@ public class CameraMotor : MonoBehaviour
         {
             if (transform.position.x < lookAt.position.x)
             {
-
-
-
                 delta.x = deltaX - boundX;
             }
             else
             {
                 delta.x = deltaX + boundX;
-
             }
         }
         // THis is to check  if we're  inside  the bound  on the y axis
@@ -36,15 +32,11 @@ public class CameraMotor : MonoBehaviour
         {
             if (transform.position.y < lookAt.position.y)
             {
-
-
-
                 delta.y = deltaY - boundY;
             }
             else
             {
                 delta.y = deltaY + boundY;
-
             }
         }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Collectable : Colliable
 {
     protected bool collected;
-
     protected override void OnCollide(Collider2D coll)
     {
         if (coll.name == "Player")
@@ -13,7 +12,6 @@ public class Collectable : Colliable
             OnCollect();
         }
     }
-
     protected virtual void OnCollect()
     {
         collected = true;

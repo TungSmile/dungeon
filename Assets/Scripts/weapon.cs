@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TreeEditor;
 using UnityEngine;
 
-public class weapon : Collectable
+public class weapon : Colliable
 {
     // Damage struct
     public int damagePoint = 1;
@@ -28,17 +28,17 @@ public class weapon : Collectable
         {
             if (Time.time - lastSwing > cooldown)
             {
-                lastSwing=Time.time;
+                lastSwing = Time.time;
                 Swing();
             }
         }
     }
     protected override void OnCollide(Collider2D coll)
     {
-        if(coll.tag=="Fighter ")
+        if (coll.tag == "Fighter")
         {
             if (coll.name == "Player")
-            return;
+                return;
             // create a new damage object , then we'll send it to the fighter we've hit
             Damage dmg = new Damage
             {
@@ -46,7 +46,7 @@ public class weapon : Collectable
                 origin = transform.position,
                 pushForce = pushForce
             };
-            coll.SendMessage("ReceiveDamage", dmg); 
+            coll.SendMessage("ReceiveDamage", dmg);
         }
     }
     private void Swing()

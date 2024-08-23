@@ -20087,6 +20087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11439dbb665ec1d4b84f3c3e131d1d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitpoint: 10
+  maxHitpoint: 10
+  pushRecoverySpeed: 0.2
 --- !u!1 &2130700195
 GameObject:
   m_ObjectHideFlags: 0
@@ -20145,7 +20148,8 @@ GameObject:
   - component: {fileID: 2137878081}
   - component: {fileID: 2137878082}
   - component: {fileID: 2137878083}
-  m_Layer: 9
+  - component: {fileID: 2137878084}
+  m_Layer: 0
   m_Name: waepon_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20264,6 +20268,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &2137878084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137878080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b94a9a572ca4f943b1b3e10ed9b3931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  damagePoint: 1
+  pushForce: 2
+  weaponLevel: 0
 --- !u!1001 &5455050318549221203
 PrefabInstance:
   m_ObjectHideFlags: 0

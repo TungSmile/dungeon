@@ -31,8 +31,6 @@ public class Colliable : MonoBehaviour
 
     protected virtual void OnCollide(Collider2D coll)
     {
-
         Debug.Log("OnCollider was not implementer in "+this.name);
-
     }
 }

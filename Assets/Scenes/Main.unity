@@ -16712,7 +16712,7 @@ MonoBehaviour:
   weaponSprite: []
   weaponPrice: 
   xpTable: 
-  player: {fileID: 0}
+  player: {fileID: 486049037}
   floatingTextManager: {fileID: 1203725831}
   gold: 0
   exp: 0
@@ -20101,7 +20101,7 @@ Transform:
   m_GameObject: {fileID: 1976430592}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.587, y: -0.183, z: 0}
+  m_LocalPosition: {x: -0.913, y: -0.264, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20169,8 +20169,8 @@ MonoBehaviour:
   maxHitpoint: 3
   pushRecoverySpeed: 0.2
   xpValue: 1
-  triggerLenght: 1
-  chaseLenght: 5
+  triggerLenght: 0.3
+  chaseLenght: 1
   chasing: 0
   filter:
     useTriggers: 0

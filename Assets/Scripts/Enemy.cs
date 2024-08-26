@@ -29,28 +29,24 @@ public class Enemy : Mover
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
     }
 
-
     private void FixedUpdate()
     {
         // is  the player  in range ?
         if (Vector3.Distance(playerTranform.position, startingPosition) < chaseLenght)
         {
             if (Vector3.Distance(playerTranform.position, startingPosition) < triggerLenght)
-            {
                 chasing = true;
-                if (chasing)
+            if (chasing)
+            {
+                if (!collidingWithPlayer)
                 {
-                    if (!collidingWithPlayer)
-                    {
-                        UpdateMotor((playerTranform.position - transform.position).normalized);
-                    }
-                }
-                else
-                {
-                    UpdateMotor(startingPosition - transform.position);
+                    UpdateMotor((playerTranform.position - transform.position).normalized);
                 }
             }
-
+            else
+            {
+                UpdateMotor(startingPosition - transform.position);
+            }
         }
         else
         {
@@ -75,10 +71,11 @@ public class Enemy : Mover
 
         }
     }
+
     protected override void Death()
     {
         Destroy(gameObject);
         GameManager.instance.exp += xpValue;
-        GameManager.instance.ShowText("+"+xpValue+"xp",30,Color.magenta,transform.position,Vector3.up*40,1.0f);
+        GameManager.instance.ShowText("+" + xpValue + "xp", 30, Color.magenta, transform.position, Vector3.up * 40, 1.0f);
     }
 }

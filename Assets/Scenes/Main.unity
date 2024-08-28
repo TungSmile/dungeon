@@ -20245,8 +20245,9 @@ GameObject:
   - component: {fileID: 2137878082}
   - component: {fileID: 2137878083}
   - component: {fileID: 2137878084}
+  - component: {fileID: 2137878085}
   m_Layer: 0
-  m_Name: waepon_0
+  m_Name: weapon_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20260,13 +20261,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137878080}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.052, y: 0.092, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7015823, w: -0.7125884}
+  m_LocalPosition: {x: 0.121, y: -0.011, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 486049036}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.108}
 --- !u!212 &2137878082
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20393,6 +20394,27 @@ MonoBehaviour:
   damagePoint: 1
   pushForce: 2
   weaponLevel: 0
+--- !u!95 &2137878085
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137878080}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12b9cf8ca40bd5946b009cdfdeb08548, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5455050318549221203
 PrefabInstance:
   m_ObjectHideFlags: 0

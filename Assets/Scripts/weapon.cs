@@ -13,6 +13,7 @@ public class weapon : Colliable
     public int weaponLevel = 0;
     private SpriteRenderer spriteRenderer;
     // action swing
+    private Animator anim;
     private float cooldown = 0.5f;
     private float lastSwing;
     protected override void Start()
@@ -20,6 +21,7 @@ public class weapon : Colliable
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
     protected override void Update()
     {
@@ -51,6 +53,6 @@ public class weapon : Colliable
     }
     private void Swing()
     {
-        Debug.Log("Swing");
+        anim.SetTrigger("Swing");
     }
 }

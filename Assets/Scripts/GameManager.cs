@@ -26,18 +26,33 @@ public class GameManager : MonoBehaviour
 
     // References
     public player player;
-    // public waepon ...
+    public weapon weapon;
     public FloatingTextManager floatingTextManager;
 
     // logic 
     public int gold;
     public int exp;
     //Floating text
-    public void ShowText(string msg,int fonsize, Color color, Vector3 position , Vector3 motion, float duration) 
+    public void ShowText(string msg, int fonsize, Color color, Vector3 position, Vector3 motion, float duration)
     {
         floatingTextManager.Show(msg, fonsize, color, position, motion, duration);
     }
 
+
+    // upgrade weapon
+    public bool TryUpgradeWeapon()
+    {
+        // is the weapon max level? 
+        if (weaponPrice.Count <= weapon.weaponLevel)
+            return false;
+        if (gold >= weaponPrice[weapon.weaponLevel])
+        {
+            gold -= weaponPrice[weapon.weaponLevel];
+            weapon.UpgradeWeapon();
+            return true;
+        }
+        return false;
+    }
     // save state
     /*
     int preferdSkin

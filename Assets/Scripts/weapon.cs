@@ -6,8 +6,8 @@ using UnityEngine;
 public class weapon : Colliable
 {
     // Damage struct
-    public int damagePoint = 1;
-    public float pushForce = 2.0f;
+    public int[] damagePoint = { 1, 2, 3, 4, 5, 6, 7 };
+    public float[] pushForce = { 2.0f, 2.2f, 2.5f, 3.0f, 3.2f, 3.6f, 4f };
 
     // upgrade
     public int weaponLevel = 0;
@@ -44,9 +44,9 @@ public class weapon : Colliable
             // create a new damage object , then we'll send it to the fighter we've hit
             Damage dmg = new Damage
             {
-                damageAmount = damagePoint,
+                damageAmount = damagePoint[weaponLevel],
                 origin = transform.position,
-                pushForce = pushForce
+                pushForce = pushForce[weaponLevel],
             };
             coll.SendMessage("ReceiveDamage", dmg);
         }
@@ -54,5 +54,12 @@ public class weapon : Colliable
     private void Swing()
     {
         anim.SetTrigger("Swing");
+    }
+    public void UpgradeWeapon()
+    {
+        weaponLevel++;
+        spriteRenderer.sprite = GameManager.instance.weaponSprite[weaponLevel];
+
+        // change stats 
     }
 }

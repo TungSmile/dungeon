@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         s += "0" + "|";
         s += gold.ToString() + "|";
         s += exp.ToString() + "|";
-        s += "0" + "|";
+        s += weapon.weaponLevel.ToString();
 
         PlayerPrefs.SetString("SaveState", s);
     }
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         gold = int.Parse(data[1]);
         exp = int.Parse(data[2]);
         // change weapon level
-
+        weapon.SetWeaponLevel(int.Parse(data[3]));
     }
 
 }

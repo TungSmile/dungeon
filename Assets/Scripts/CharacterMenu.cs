@@ -18,7 +18,7 @@ public class CharacterMenu : MonoBehaviour
         if (right)
         {
             currenCharacterSelection++;
-            // ì we went too far away
+            // If we went too far away
             if (currenCharacterSelection == GameManager.instance.playerSprite.Count)
                 currenCharacterSelection = 0;
 
@@ -28,7 +28,7 @@ public class CharacterMenu : MonoBehaviour
         else
         {
             currenCharacterSelection--;
-            // ì we went too far away
+            // If we went too far away
             if (currenCharacterSelection < 0)
                 currenCharacterSelection = GameManager.instance.playerSprite.Count - 1;
 
@@ -39,22 +39,26 @@ public class CharacterMenu : MonoBehaviour
     private void OnSelectionChanged()
     {
         characterSelectionSprite.sprite = GameManager.instance.playerSprite[currenCharacterSelection];
+        GameManager.instance.player.SwapSprite(currenCharacterSelection);
     }
 
     //weapon upgrade
     public void OnUpgradeClick()
     {
-        if(GameManager.instance.TryUpgradeWeapon())
+        if (GameManager.instance.TryUpgradeWeapon())
             UpdateMenu();
-         
+
     }
 
     // update th character information
     public void UpdateMenu()
     {
         // weapon
-        weaponSprite.sprite = GameManager.instance.weaponSprite[0];
-        upgradeCostText.text = "Not Implemnented";
+        weaponSprite.sprite = GameManager.instance.weaponSprite[GameManager.instance.weapon.weaponLevel];
+        if (GameManager.instance.weapon.weaponLevel == GameManager.instance.weaponPrice.Count)
+            upgradeCostText.text = "MAX";
+        else
+            upgradeCostText.text = GameManager.instance.weaponPrice[GameManager.instance.weapon.weaponLevel].ToString();
 
         //meta
         levelText.text = "Not Implemnented";

@@ -6,15 +6,11 @@ public class Player : Mover
 {
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     protected override void Start()
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        DontDestroyOnLoad(gameObject);
     }
     private void FixedUpdate()
     {

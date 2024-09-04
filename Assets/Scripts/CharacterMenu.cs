@@ -61,13 +61,29 @@ public class CharacterMenu : MonoBehaviour
             upgradeCostText.text = GameManager.instance.weaponPrice[GameManager.instance.weapon.weaponLevel].ToString();
 
         //meta
-        levelText.text = "Not Implemnented";
+        levelText.text = GameManager.instance.GetCurrentLevel().ToString();
         hitpointText.text = GameManager.instance.player.hitpoint.ToString();
         goldText.text = GameManager.instance.gold.ToString();
 
         // xp Bar
-        xpText.text = "Not Implemnented";
-        xpBar.localScale = new Vector3(0.5f, 0, 0);
+        int currenLevel = GameManager.instance.GetCurrentLevel();
+        if (GameManager.instance.GetCurrentLevel() == GameManager.instance.xpTable.Count)
+        {
+            xpText.text = GameManager.instance.exp.ToString() + "total experience points"; // display total xp
+        }
+        else
+        {
+            int preLevelXp = GameManager.instance.GetXpToLevel(currenLevel - 1);
+            int currLevelXp = GameManager.instance.GetXpToLevel(currenLevel);
+
+            int diff = currLevelXp - preLevelXp;
+            int currXpIntoLevel = GameManager.instance.exp - preLevelXp;
+
+            float completionRatio = (float)currXpIntoLevel / (float)diff;
+            xpBar.localScale = new Vector3(completionRatio, 1, 1);
+            xpText.text = currXpIntoLevel.ToString() + "/" + diff;
+        }
+      
 
     }
 }

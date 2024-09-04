@@ -53,6 +53,45 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
+
+
+
+    // experience system
+    public int GetCurrentLevel()
+    {
+        int r = 0;
+        int add = 0;
+        while (exp >= add)
+        {
+            add += xpTable[r];
+            r++;
+            if (r == xpTable.Count)
+                return r;
+        }
+        return r;
+    }
+    public int GetXpToLevel(int level)
+    {
+        int r = 0;
+        int xp = 0;
+        while (r < level)
+        {
+            xp += xpTable[r];
+            r++;
+        }
+        return xp;
+    }
+    public void GrantXp(int xp)
+    {
+        int currLevel = GetCurrentLevel();
+        exp += xp;
+        if (currLevel < GetCurrentLevel())
+            OnLevelUp();
+    }
+    public void OnLevelUp()
+    {
+        player.OnLevelUp();
+    }
     // save state
     /*
     int preferdSkin
@@ -77,7 +116,10 @@ public class GameManager : MonoBehaviour
         string[] data = PlayerPrefs.GetString("SaveState").Split("|");
         // change player skin
         gold = int.Parse(data[1]);
+        //experience
         exp = int.Parse(data[2]);
+        if (GetCurrentLevel() != 1)
+            player.SetLevel(GetCurrentLevel());
         // change weapon level
         weapon.SetWeaponLevel(int.Parse(data[3]));
     }

@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : Mover
+public class Player : Mover
 {
     private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     protected override void Start()
     {

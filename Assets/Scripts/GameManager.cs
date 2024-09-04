@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public List<int> xpTable;
 
     // References
-    public player player;
+    public Player player;
     public weapon weapon;
     public FloatingTextManager floatingTextManager;
 
@@ -122,6 +122,10 @@ public class GameManager : MonoBehaviour
             player.SetLevel(GetCurrentLevel());
         // change weapon level
         weapon.SetWeaponLevel(int.Parse(data[3]));
+
+        player.transform.position=GameObject.Find("SpawnPoint").transform.position;
     }
+
+
 
 }
